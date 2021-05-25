@@ -1,2 +1,4 @@
 .eslintrc.js
 README.md
+src/**/*.js
+test/**/*.e2e-spec.js

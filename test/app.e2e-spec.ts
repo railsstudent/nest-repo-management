@@ -15,8 +15,8 @@ describe('AppController (e2e)', () => {
   let app: INestApplication
 
   const appService = {
-    getHello(): string {
-      return 'Hello World 2021!'
+    getHello(name = 'World'): string {
+      return `Hello ${name} 2021!`
     },
   }
 
@@ -34,5 +34,9 @@ describe('AppController (e2e)', () => {
 
   it('/ (GET)', () => {
     return request(app.getHttpServer()).get('/').expect(200).expect('Hello World 2021!')
+  })
+
+  it('/ (GET)', () => {
+    return request(app.getHttpServer()).get('/John').expect(200).expect('Hello John 2021!')
   })
 })

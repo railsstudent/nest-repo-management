@@ -423,10 +423,10 @@ export class UserService {
    *
    * @param {string} id - user id
    */
-  async getUser(id: string):Promise&lt;User&gt; {
-    const user &#x3D; this.users.find(user &#x3D;&gt; user.id &#x3D;&#x3D;&#x3D; id)
+  async getUser(id: string): Promise&lt;User&gt; {
+    const user &#x3D; this.users.find((user) &#x3D;&gt; user.id &#x3D;&#x3D;&#x3D; id)
     if (!user) {
-        throw new BadRequestException(&#x27;User does not exist&#x27;)
+      throw new BadRequestException(&#x27;User does not exist&#x27;)
     }
     return Promise.resolve(user)
   }

@@ -28,15 +28,16 @@ export class AppController {
   }
 
   /**
-   * Returns Good Morning! or Good name!
+   * Returns a greeting to a person
    *
-   * @param {string} name - name of the thing
-   * @returns 'Good Morning!' or 'Good name!' when name is provided
+   * @param {string} greeting - greeting to the person
+   * @param {string} name - name of the person
+   * @returns 'Good greeting!' or 'Good greeting, name!' when greeting and name are provided
    *
    * @public
    */
-  @Get('good/:name?')
-  getGoodName(@Param('name') name?: string): string {
-    return this.appService.getGood(name)
+  @Get('good/:greeting/:name?')
+  getGoodName(@Param('greeting') greeting: string, @Param('name') name?: string): string {
+    return this.appService.getGood(greeting, name)
   }
 }

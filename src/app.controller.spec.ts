@@ -31,16 +31,20 @@ describe('AppController', () => {
   })
 
   describe('getGoodName', () => {
-    it('should return "Hello World!"', () => {
-      jest.spyOn(appService, 'getHello').mockImplementation((name = 'Morning') => `Good ${name}!`)
+    it('should return "Good morning!"', () => {
+      jest
+        .spyOn(appService, 'getGood')
+        .mockImplementation((greeting?: string, person = '') => `Good ${greeting}${person ? `, ${person}` : ''}!`)
 
-      expect(appController.getGoodName()).toBe('Good Morning!')
+      expect(appController.getGoodName('morning')).toBe('Good morning!')
     })
 
-    it('should return "Hello John!"', () => {
-      jest.spyOn(appService, 'getHello').mockImplementation((name = 'Morning') => `Good ${name}!`)
+    it('should return "Good afternoon, John!"', () => {
+      jest
+        .spyOn(appService, 'getGood')
+        .mockImplementation((greeting?: string, person = '') => `Good ${greeting}${person ? `, ${person}` : ''}!`)
 
-      expect(appController.getGoodName('Afternoon')).toBe('Good Afternoon!')
+      expect(appController.getGoodName('afternoon', 'John')).toBe('Good afternoon, John!')
     })
   })
 })

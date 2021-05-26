@@ -121,15 +121,15 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getGood(name: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getGood(greeting: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, person: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="28"
-                            class="link-to-prism">src/app.service.ts:28</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="29"
+                            class="link-to-prism">src/app.service.ts:29</a></div>
                 </td>
             </tr>
 
@@ -153,7 +153,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>name</td>
+                                    <td>greeting</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
                                     </td>
@@ -168,7 +168,28 @@
 
                                     <td>
                                         <ul>
-<li>name of the thing</li>
+<li>greeting to the person</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>person</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+                                    <td>
+                                        <code>&#x27;&#x27;</code>
+                                    </td>
+
+                                    <td>
+                                        <ul>
+<li>name of the person</li>
 </ul>
 
                                     </td>
@@ -183,7 +204,7 @@
 
                     </div>
                     <div class="io-description">
-                        <p>&#39;Good Morning!&#39; or &#39;Good name!&#39; when name is provided</p>
+                        <p>&#39;Good Morning!&#39; or &#39;Good greeting, name!&#39; when greeting and person are provided</p>
 
                     </div>
                 </td>
@@ -302,13 +323,14 @@ export class AppService {
   /**
    * Returns Good Morning! or Good name!
    *
-   * @param {string} [name&#x3D;&#x27;Morning&#x27;] - name of the thing
-   * @returns &#x27;Good Morning!&#x27; or &#x27;Good name!&#x27; when name is provided
+   * @param {string} [greeting&#x3D;&#x27;Morning&#x27;] - greeting to the person
+   * @param {string} [person&#x3D;&#x27;&#x27;] - name of the person
+   * @returns &#x27;Good Morning!&#x27; or &#x27;Good greeting, name!&#x27; when greeting and person are provided
    *
    * @public
    */
-  getGood(name &#x3D; &#x27;Morning&#x27;): string {
-    return &#x60;Good ${name}!&#x60;
+  getGood(greeting &#x3D; &#x27;Morning&#x27;, person &#x3D; &#x27;&#x27;): string {
+    return &#x60;Good ${greeting}${ person ? &#x60;, ${person}&#x60; : &#x27;&#x27; }!&#x60;
   }
 }
 </code></pre>

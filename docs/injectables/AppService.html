@@ -59,6 +59,13 @@
             <code>src/app.service.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>App service</p>
+
+            </p>
 
 
 
@@ -121,14 +128,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="9"
-                            class="link-to-prism">src/app.service.ts:9</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="28"
+                            class="link-to-prism">src/app.service.ts:28</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Returns Good Morning! or Good name!</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -139,6 +148,7 @@
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -156,6 +166,12 @@
                                         <code>&#x27;Morning&#x27;</code>
                                     </td>
 
+                                    <td>
+                                        <ul>
+<li>name of the thing</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -167,7 +183,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>&#39;Good Morning!&#39; or &#39;Good name!&#39; when name is provided</p>
+
                     </div>
                 </td>
             </tr>
@@ -195,14 +212,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="5"
-                            class="link-to-prism">src/app.service.ts:5</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="16"
+                            class="link-to-prism">src/app.service.ts:16</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Returns Hello World! or Hello name!</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -213,6 +232,7 @@
                                     <td>Type</td>
                                     <td>Optional</td>
                                     <td>Default value</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -230,6 +250,12 @@
                                         <code>&#x27;World&#x27;</code>
                                     </td>
 
+                                    <td>
+                                        <ul>
+<li>name of the thing</li>
+</ul>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -241,7 +267,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>&#39;Hello World!&#39; or &#39;Hello  name!&#39; when name is provided</p>
+
                     </div>
                 </td>
             </tr>
@@ -255,13 +282,32 @@
     <div class="tab-pane fade  tab-source-code" id="c-source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;
 
+/**
+ * App service
+ */
 @Injectable()
 export class AppService {
+  /**
+   * Returns Hello World! or Hello name!
+   *
+   * @param {string} [name&#x3D;&#x27;World&#x27;]  - name of the thing
+   * @returns &#x27;Hello World!&#x27; or &#x27;Hello  name!&#x27; when name is provided
+   *
+   * @public
+   */
   getHello(name &#x3D; &#x27;World&#x27;): string {
     return &#x60;Hello ${name}!&#x60;
   }
 
-  getGood(name &#x3D; &#x27;Morning&#x27;): string {
+  /**
+   * Returns Good Morning! or Good name!
+   *
+   * @param {string} [name&#x3D;&#x27;Morning&#x27;] - name of the thing
+   * @returns &#x27;Good Morning!&#x27; or &#x27;Good name!&#x27; when name is provided
+   *
+   * @public
+   */
+   getGood(name &#x3D; &#x27;Morning&#x27;): string {
     return &#x60;Good ${name}!&#x60;
   }
 }

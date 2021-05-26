@@ -1,8 +1,8 @@
 {
   "name": "nest-repo-management",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "description": "POC project to try git flow and some new tools",
+  "author": "Connie Leung",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
@@ -20,7 +20,10 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "prepare": "husky install",
-    "lint:staged": "scripty"
+    "lint:staged": "scripty",
+    "compodoc:generate": "scripty",
+    "compodoc:serve": "scripty",
+    "compodoc:watch": "scripty"
   },
   "dependencies": {
     "@nestjs/common": "^7.6.15",
@@ -39,6 +42,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
+    "@compodoc/compodoc": "^1.1.11",
     "@nestjs/cli": "^7.6.0",
     "@nestjs/schematics": "^7.3.0",
     "@nestjs/testing": "^7.6.15",

@@ -5,6 +5,9 @@ import * as helmet from 'helmet'
 import * as express from 'express'
 import compression = require('compression')
 
+/**
+ * Entry point of the app
+ */
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule, { cors: true })
   app.use(express.json({ limit: '50mb' }))

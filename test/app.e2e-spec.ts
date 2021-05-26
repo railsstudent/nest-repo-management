@@ -19,8 +19,8 @@ describe('AppController (e2e)', () => {
       return `Hello ${name} 2021!`
     },
 
-    getGood(name = 'Morning'): string {
-      return `Good ${name} 2021!`
+    getGood(greeting = 'Morning', person = ''): string {
+      return `Good ${greeting} 2021${person ? `, ${person}` : ''}!`
     },
   }
 
@@ -46,13 +46,16 @@ describe('AppController (e2e)', () => {
     })
   })
 
-  describe('/good/:name (GET)', () => {
+  describe('/good/:greeting (GET)', () => {
     it('/good (GET)', () => {
-      return request(app.getHttpServer()).get('/good/').expect(HttpStatus.OK).expect('Good Morning 2021!')
+      return request(app.getHttpServer()).get('/good/morning').expect(HttpStatus.OK).expect('Good morning 2021!')
     })
 
-    it('/good/:name (GET)', () => {
-      return request(app.getHttpServer()).get('/good/Afternoon').expect(HttpStatus.OK).expect('Good Afternoon 2021!')
+    it('/good/:greeting/:name (GET)', () => {
+      return request(app.getHttpServer())
+        .get('/good/afternoon/Peter')
+        .expect(HttpStatus.OK)
+        .expect('Good afternoon 2021, Peter!')
     })
   })
 })

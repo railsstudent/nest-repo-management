@@ -1,5 +1,5 @@
 import { Test, TestingModule } from '@nestjs/testing'
-import { INestApplication, Module } from '@nestjs/common'
+import { HttpStatus, INestApplication, Module } from '@nestjs/common'
 import * as request from 'supertest'
 import { AppService } from './../src/app.service'
 import { AppController } from '../src/app.controller'
@@ -38,21 +38,21 @@ describe('AppController (e2e)', () => {
 
   describe('/hello/:name (GET)', () => {
     it('/hello (GET)', () => {
-      return request(app.getHttpServer()).get('/hello').expect(200).expect('Hello World 2021!')
+      return request(app.getHttpServer()).get('/hello').expect(HttpStatus.OK).expect('Hello World 2021!')
     })
 
     it('/hello/:name (GET)', () => {
-      return request(app.getHttpServer()).get('/hello/John Doe').expect(200).expect('Hello John Doe 2021!')
+      return request(app.getHttpServer()).get('/hello/John Doe').expect(HttpStatus.OK).expect('Hello John Doe 2021!')
     })
   })
 
   describe('/good/:name (GET)', () => {
     it('/good (GET)', () => {
-      return request(app.getHttpServer()).get('/good/').expect(200).expect('Good Morning 2021!')
+      return request(app.getHttpServer()).get('/good/').expect(HttpStatus.OK).expect('Good Morning 2021!')
     })
 
     it('/good/:name (GET)', () => {
-      return request(app.getHttpServer()).get('/good/Afternoon').expect(200).expect('Good Afternoon 2021!')
+      return request(app.getHttpServer()).get('/good/Afternoon').expect(HttpStatus.OK).expect('Good Afternoon 2021!')
     })
   })
 })

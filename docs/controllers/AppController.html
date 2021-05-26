@@ -120,7 +120,7 @@
             </tr>
             <tr>
                 <td class="col-md-4">
-<code>getGoodName(name?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+<code>getGoodName(greeting: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, name?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
                 </td>
             </tr>
 
@@ -128,21 +128,21 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;good/:name?&#x27;)<br /></code>
+                    <code>@Get(&#x27;good/:greeting/:name?&#x27;)<br /></code>
                 </td>
             </tr>
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="39"
-                            class="link-to-prism">src/app.controller.ts:39</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="40"
+                            class="link-to-prism">src/app.controller.ts:40</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Returns Good Morning! or Good name!</p>
+                    <div class="io-description"><p>Returns a greeting to a person</p>
 </div>
 
                     <div class="io-description">
@@ -158,6 +158,24 @@
                             </thead>
                             <tbody>
                                 <tr>
+                                    <td>greeting</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <ul>
+<li>greeting to the person</li>
+</ul>
+
+                                    </td>
+                                </tr>
+                                <tr>
                                     <td>name</td>
                                     <td>
                                                 <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
@@ -170,7 +188,7 @@
 
                                     <td>
                                         <ul>
-<li>name of the thing</li>
+<li>name of the person</li>
 </ul>
 
                                     </td>
@@ -185,7 +203,7 @@
 
                     </div>
                     <div class="io-description">
-                        <p>&#39;Good Morning!&#39; or &#39;Good name!&#39; when name is provided</p>
+                        <p>&#39;Good greeting!&#39; or &#39;Good greeting, name!&#39; when greeting and name are provided</p>
 
                     </div>
                 </td>
@@ -313,16 +331,17 @@ export class AppController {
   }
 
   /**
-   * Returns Good Morning! or Good name!
+   * Returns a greeting to a person
    *
-   * @param {string} name - name of the thing
-   * @returns &#x27;Good Morning!&#x27; or &#x27;Good name!&#x27; when name is provided
+   * @param {string} greeting - greeting to the person
+   * @param {string} name - name of the person
+   * @returns &#x27;Good greeting!&#x27; or &#x27;Good greeting, name!&#x27; when greeting and name are provided
    *
    * @public
    */
-  @Get(&#x27;good/:name?&#x27;)
-  getGoodName(@Param(&#x27;name&#x27;) name?: string): string {
-    return this.appService.getGood(name)
+  @Get(&#x27;good/:greeting/:name?&#x27;)
+  getGoodName(@Param(&#x27;greeting&#x27;) greeting: string, @Param(&#x27;name&#x27;) name?: string): string {
+    return this.appService.getGood(greeting, name)
   }
 }
 </code></pre>

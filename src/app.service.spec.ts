@@ -30,5 +30,9 @@ describe('AppService', () => {
     it('should return "Good Afternoon!"', () => {
       expect(appService.getGood('Afternoon')).toBe('Good Afternoon!')
     })
+
+    it('should return "Good Afternoon, John!"', () => {
+      expect(appService.getGood('Afternoon', 'John')).toBe('Good Afternoon, John!')
+    })
   })
 })

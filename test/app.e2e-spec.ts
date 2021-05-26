@@ -18,6 +18,10 @@ describe('AppController (e2e)', () => {
     getHello(name = 'World'): string {
       return `Hello ${name} 2021!`
     },
+
+    getGood(name = 'Morning'): string {
+      return `Good ${name} 2021!`
+    },
   }
 
   beforeEach(async () => {
@@ -32,11 +36,23 @@ describe('AppController (e2e)', () => {
     await app.init()
   })
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer()).get('/').expect(200).expect('Hello World 2021!')
+  describe('/hello/:name (GET)', () => {
+    it('/hello (GET)', () => {
+      return request(app.getHttpServer()).get('/hello').expect(200).expect('Hello World 2021!')
+    })
+
+    it('/hello/:name (GET)', () => {
+      return request(app.getHttpServer()).get('/hello/John Doe').expect(200).expect('Hello John Doe 2021!')
+    })
   })
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer()).get('/John').expect(200).expect('Hello John 2021!')
+  describe('/good/:name (GET)', () => {
+    it('/good (GET)', () => {
+      return request(app.getHttpServer()).get('/good/').expect(200).expect('Good Morning 2021!')
+    })
+
+    it('/good/:name (GET)', () => {
+      return request(app.getHttpServer()).get('/good/Afternoon').expect(200).expect('Good Afternoon 2021!')
+    })
   })
 })

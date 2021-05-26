@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config'
 import { envSchema } from './envSchema'
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler'
 import { APP_GUARD } from '@nestjs/core'
+import { UserModule } from './user'
 
 /**
  * App module that registers controllers, providers and other modules
@@ -24,6 +25,7 @@ import { APP_GUARD } from '@nestjs/core'
         limit: config.get<number>('THROTTLE_LIMIT'),
       }),
     }),
+    UserModule,
   ],
   controllers: [AppController],
   providers: [

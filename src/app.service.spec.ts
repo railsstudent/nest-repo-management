@@ -12,13 +12,23 @@ describe('AppService', () => {
     appService = app.get<AppService>(AppService)
   })
 
-  describe('root', () => {
+  describe('getHello', () => {
     it('should return "Hello World!"', () => {
       expect(appService.getHello()).toBe('Hello World!')
     })
 
     it('should return "Hello John!"', () => {
       expect(appService.getHello('John')).toBe('Hello John!')
+    })
+  })
+
+  describe('getGood', () => {
+    it('should return "Good Morning!"', () => {
+      expect(appService.getGood()).toBe('Good Morning!')
+    })
+
+    it('should return "Good Afternoon!"', () => {
+      expect(appService.getGood('Afternoon')).toBe('Good Afternoon!')
     })
   })
 })

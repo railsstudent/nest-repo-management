@@ -16,17 +16,31 @@ describe('AppController', () => {
     appController = app.get<AppController>(AppController)
   })
 
-  describe('root', () => {
+  describe('getHelloName', () => {
     it('should return "Hello World!"', () => {
       jest.spyOn(appService, 'getHello').mockImplementation((name = 'World') => `Hello ${name}!`)
 
-      expect(appController.getHello()).toBe('Hello World!')
+      expect(appController.getHelloName()).toBe('Hello World!')
     })
 
     it('should return "Hello John!"', () => {
       jest.spyOn(appService, 'getHello').mockImplementation((name = 'World') => `Hello ${name}!`)
 
       expect(appController.getHelloName('John')).toBe('Hello John!')
+    })
+  })
+
+  describe('getGoodName', () => {
+    it('should return "Hello World!"', () => {
+      jest.spyOn(appService, 'getHello').mockImplementation((name = 'Morning') => `Good ${name}!`)
+
+      expect(appController.getGoodName()).toBe('Good Morning!')
+    })
+
+    it('should return "Hello John!"', () => {
+      jest.spyOn(appService, 'getHello').mockImplementation((name = 'Morning') => `Good ${name}!`)
+
+      expect(appController.getGoodName('Afternoon')).toBe('Good Afternoon!')
     })
   })
 })

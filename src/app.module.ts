@@ -6,6 +6,11 @@ import { envSchema } from './envSchema'
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler'
 import { APP_GUARD } from '@nestjs/core'
 
+/**
+ * App module that registers controllers, providers and other modules
+ *
+ * It is bootstrapped in {@link ../miscellaneous/functions.html#bootstrap | main.ts}
+ */
 @Module({
   imports: [
     ConfigModule.forRoot({
